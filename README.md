@@ -146,3 +146,5 @@ AGENTX/
     pip install -r requirements.txt
 # Run the Game:
     python main.py
+# OR use the demo script
+    ./run_demo.sh

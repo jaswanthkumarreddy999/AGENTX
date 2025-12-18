@@ -1,0 +1,12 @@
+# Agent-X Dependencies
+# Game Engine
+pygame>=2.5.0
+
+# Math & AI Processing
+numpy>=1.24.0
+
+# Optional: Data Analysis (if used in future)
+# pandas>=2.0.0
+# matplotlib>=3.7.0
+
+#pip install -r requirements.txt  (run this command to install dependencies)

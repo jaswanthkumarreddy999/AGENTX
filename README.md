@@ -89,7 +89,7 @@ AGENTX/
 ├── TEAM.md          # Team Details
 └── README.md        # Documentation
 
----
+```
 ##  🛠️ Installation & Run
 
 *** Prerequisites: Python 3.10+ ***

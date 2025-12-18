@@ -88,3 +88,20 @@ AGENTX/
 ├── requirements.txt # Dependencies
 ├── TEAM.md          # Team Details
 └── README.md        # Documentation
+
+---
+##  🛠️ Installation & Run
+
+*** Prerequisites: Python 3.10+ ***
+
+Install Dependencies:
+
+Bash
+
+pip install -r requirements.txt
+Run the Game:
+
+Bash
+    python main.py
+# OR use the demo script
+    ./run_demo.sh

@@ -94,14 +94,7 @@ AGENTX/
 
 *** Prerequisites: Python 3.10+ ***
 
-Install Dependencies:
-
-Bash
-
-pip install -r requirements.txt
-Run the Game:
-
-Bash
+#   Install Dependencies:
+    pip install -r requirements.txt
+# Run the Game:
     python main.py
-# OR use the demo script
-    ./run_demo.sh

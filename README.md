@@ -51,7 +51,33 @@ Examples include: Puzzle-solving worlds Resource-optimization challenges Maze na
 | **Dashboard** | `Arrows` | Scroll History Replay |
 
 ---
+## 🔬 Approach & Architecture
 
+Our solution addresses the "Black Box" problem in Reinforcement Learning by creating a **Hybrid Neuro-Symbolic Architecture**. Instead of training agents purely on raw pixels (which is computationally expensive and slow), we decouple high-level strategy from low-level execution.
+
+### 1. The Environment (Pygame Simulation)
+* **Grid-Based World:** The map is quantized into a tilemap where `0 = Floor`, `1 = Wall`.
+* **Sensory System (Fog of War):** We implemented a custom **Raycasting Algorithm** that limits the agent's vision cone. This forces the agents to learn "memory" and exploration strategies rather than reacting to perfect information.
+* **Dynamic Elements:** The environment supports interactive entities like Traps (dynamic obstacles) and Doors (state changers).
+
+### 2. The Agent Brain (Hybrid Q-Learning)
+We use a hierarchical decision-making process:
+* **Layer 1: The Executive (Q-Learning):**
+    * The agent observes a **Discrete State** (e.g., `Enemy_Near`, `Stamina_Low`, `Can_See_Target`).
+    * It queries a **Q-Table** to select a high-level *Intent* (e.g., "Retreat", "Chase", "Place Trap").
+* **Layer 2: The Navigator (A* Pathfinding):**
+    * Once an intent is formed, the agent uses **A* Pathfinding** to execute the movement efficiently.
+    * This hybrid approach allows the agent to learn *strategy* in minutes rather than hours.
+
+### 3. The Training Flow
+1.  **Observation:** Agent scans radius using Raycasting.
+2.  **Action Selection:** Epsilon-Greedy policy (Exploration vs. Exploitation).
+3.  **Execution:** Action is performed; Physics engine updates positions.
+4.  **Reward Shaping:**
+    * **Hunter:** Positive reward for reducing distance to Survivor; Large reward for Trap triggers.
+    * **Survivor:** Positive reward for "Unseen" time; Large reward for Keys.
+5.  **Optimization:** Q-Values are updated using the Bellman Equation at every tick.
+---
 ## 🧠 AI Architecture & Approach
 The agents use a **Hybrid Q-Learning** approach with a lookup table to make decisions based on:
 1.  **State Mapping:** (Patrolling, Chasing, Evading, Scavenging).

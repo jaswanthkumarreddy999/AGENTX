@@ -116,6 +116,28 @@ AGENTX/
 └── README.md        # Documentation
 
 ```
+## 🎯 Expected Outputs & Deliverables
+
+### 1. Functional Simulation
+* **Playable Game:** A bug-free, interactive application running at 60 FPS.
+* **Dual Perspectives:** Users can experience the game as both predator (Hunter) and prey (Survivor).
+
+### 2. Observable AI Evolution
+* **Early Episodes (0-50):** Agents move randomly, hitting walls or getting caught easily.
+* **Mid Training (50-200):** Agents begin using map geometry (corners) and retreating when stamina is low.
+* **Expert Level (200+):**
+    * **Hunter:** Predicts survivor pathing and places traps at choke points.
+    * **Survivor:** Baits the hunter and sprints only when necessary to conserve energy.
+
+### 3. Quantitative Evidence (Dashboard)
+* **Reward Convergence:** The "Total Reward" graph should show an upward trend, indicating the agent is learning the rules.
+* **Efficiency:** The "Steps Taken" metric should decrease for the Hunter (catching faster) and increase for the Survivor (surviving longer).
+
+### 4. Persisted Artifacts
+* **Trained Brains:** The system generates `hunter_qtable.pkl` and `survivor_qtable.pkl` files, allowing training to resume across sessions without data loss.
+
+---
+
 ##  🛠️ Installation & Run
 
 *** Prerequisites: Python 3.10+ ***
